@@ -1,22 +1,17 @@
 # WARNING: This build file assume that the sub-modules have been retreived.
 
-./ : plf_colony/
+./ : lib{colony} exe{test_suite}
 
-plf_colony/
-{
-    ./ : lib{colony} exe{test_suite}
+lib{colony} : hxx{plf_colony/**}
+lib{colony}: cxx.export.poptions = "-I$out_root" "-I$src_root"
 
-    lib{colony} : hxx{**}
-    lib{colony}: cxx.export.poptions = "-I$out_root" "-I$src_root"
+{hxx}{*}: install = include/plf/colony/
+{hxx}{*}: install.subdirs = true
 
-    {hxx}{*}: install = include/plf/colony/
-    {hxx}{*}: install.subdirs = true
-
-    cxx.poptions =+ "-I$out_root" "-I$src_root"
-        
-    exe{test_suite} : cxx{**} lib{colony}
-    exe{*}: test = true
+cxx.poptions =+ "-I$out_root" "-I$src_root"
     
-}
+exe{test_suite} : cxx{plf_colony/**} lib{colony}
+exe{*}: test = true
+
 
 
