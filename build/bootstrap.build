@@ -1,0 +1,7 @@
+project = plf-colony
+
+using version
+using config
+using test
+using install
+using dist
