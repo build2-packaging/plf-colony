@@ -8,3 +8,12 @@ email: mattreecebentley@gmail.com
 package-email: mjklaim@gmail.com
 depends: * build2 >= 0.8.0-
 depends: * bpkg >= 0.8.0-
+requires: c++17
+
+build-exclude: * ; Recent versions of compilers required.
+build-include: *-msvc_15*
+build-include: *-gcc_*
+build-include: *-clang_7.*
+build-include: macos_10.*
+
+
