@@ -3,12 +3,16 @@
 src_upstream = $src_base/upstream
 
 ./ : lib{colony} : $src_upstream/hxx{**}
+lib{colony} :
 {
     cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
 } 
     
-{hxx}{*}: install = include/
-{hxx}{*}: install.subdirs = true
+hxx{*}: 
+{
+    install = include/
+    install.subdirs = true
+}
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
     
