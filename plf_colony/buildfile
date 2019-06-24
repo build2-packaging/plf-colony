@@ -1,16 +1,18 @@
-# WARNING: This build file assume that the sub-modules have been retreived.
+# WARNING: This build file assume that the sub-modules have been retrieved.
 
 ./ : lib{colony} exe{test_suite}
 
-lib{colony} : hxx{plf_colony/**}
-lib{colony}: cxx.export.poptions = "-I$out_root" "-I$src_root"
+src_upstream = $src_base/upstream
 
-{hxx}{*}: install = include/plf/colony/
+lib{colony} : $src_upstream/hxx{**}
+lib{colony}: cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
+
+{hxx}{*}: install = include/
 {hxx}{*}: install.subdirs = true
 
-cxx.poptions =+ "-I$out_root" "-I$src_root"
+cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
     
-exe{test_suite} : cxx{plf_colony/**} lib{colony}
+exe{test_suite} : $src_upstream/cxx{**} lib{colony}
 exe{*}: test = true
 
 
