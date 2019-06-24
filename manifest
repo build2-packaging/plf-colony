@@ -6,15 +6,16 @@ license: zLib license
 url: https://plflib.org/colony.htm
 email: mattreecebentley@gmail.com
 package-email: mjklaim@gmail.com
+build-email: mjklaim@gmail.com
+
 depends: * build2 >= 0.11.0-
-depends: * bpkg >= 0.1.0-
+depends: * bpkg >= 0.11.0-
 requires: c++17
 
-
-build-include: *-msvc_15*
-build-include: *-gcc_*
-build-include: *-clang_7.*
-build-include: macos_10.*
-build-exclude: * ; Recent versions of compilers required.
+builds: all
+build-include: gcc-5+
+build-include: clang-7+
+build-include: msvc-14+
+build-exclude: ** ; Recent versions of compilers required.
 
 
