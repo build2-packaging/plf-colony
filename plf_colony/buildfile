@@ -1,18 +1,19 @@
 # WARNING: This build file assume that the sub-modules have been retrieved.
 
-./ : lib{colony} exe{test_suite}
-
 src_upstream = $src_base/upstream
 
-lib{colony} : $src_upstream/hxx{**}
-lib{colony}: cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
-
+./ : lib{colony} : $src_upstream/hxx{**}
+{
+    cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
+} 
+    
 {hxx}{*}: install = include/
 {hxx}{*}: install.subdirs = true
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
     
-exe{test_suite} : $src_upstream/cxx{**} lib{colony}
+
+./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony}
 exe{*}: test = true
 
 

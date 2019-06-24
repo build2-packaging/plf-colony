@@ -10,4 +10,3 @@ cxx{*}: extension = cpp
 #
 test.target = $cxx.target
 
-sources_dir = $src_root/plf_colony/plf_colony/
