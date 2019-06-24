@@ -11,14 +11,17 @@ lib{colony} :
 hxx{*}: 
 {
     install = include/
-    install.subdirs = true
+    install.subdirs = false
 }
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
     
 
 ./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony}
-exe{*}: test = true
-
+exe{*}: 
+{
+    test = true
+    install = false
+}
 
 
