@@ -1,0 +1,4 @@
+import dependencies = plf-colony%lib{colony}
+
+./ : exe{basic_integration}: cxx{*} $dependencies
+
