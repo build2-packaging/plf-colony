@@ -24,4 +24,10 @@ exe{*}:
     install = false
 }
 
+if ($cxx.class == 'msvc')
+{
+  # plf-colony author want to ignore these warnings
+  # (source: https://github.com/mattreecebentley/plf_colony/issues/28 )
+  cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
+}
 
