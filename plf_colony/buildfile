@@ -6,19 +6,19 @@ src_upstream = $src_base/upstream
 lib{colony} :
 {
     cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
-} 
-    
-hxx{*}: 
+}
+
+hxx{*}:
 {
     install = include/
     install.subdirs = false
 }
 
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
-    
+
 
 ./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony}
-exe{*}: 
+exe{*}:
 {
     test = true
     install = false
@@ -27,7 +27,7 @@ exe{*}:
 if ($cxx.class == 'msvc')
 {
   # plf-colony author want to ignore these warnings
-  # (source: https://github.com/mattreecebentley/plf_colony/issues/28 )
-  cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
+  # (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
+  cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
 }
 
