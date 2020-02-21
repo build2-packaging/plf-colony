@@ -24,10 +24,14 @@ exe{*}:
     install = false
 }
 
-if( $cxx.class == 'msvc' || ( $cxx.class == 'clang' && $cxx.target.class == 'windows' ) )
-{
-  # plf-colony author want to ignore these warnings
-  # (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
-  cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
-}
 
+# plf-colony author want to ignore these warnings
+# (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
+switch $cxx.target.class, $cxx.class
+{
+    case 'windows', 'msvc'
+        cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
+
+    case 'windows', 'clang'
+        cxx.poptions += -Wdeprecated-declarations -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
+}
