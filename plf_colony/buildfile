@@ -24,7 +24,7 @@ exe{*}:
     install = false
 }
 
-if ($cxx.class == 'msvc')
+if( $cxx.class == 'msvc' || ( $cxx.class == 'clang' && $cxx.target.class == 'windows' ) )
 {
   # plf-colony author want to ignore these warnings
   # (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
