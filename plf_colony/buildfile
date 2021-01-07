@@ -5,7 +5,7 @@ src_upstream = $src_base/upstream
 ./ : lib{colony} : $src_upstream/hxx{**}
 lib{colony} :
 {
-    cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_upstream"
+    cxx.export.poptions = "-I$out_base/upstream" "-I$src_base/upstream"
 }
 
 hxx{*}:
@@ -14,10 +14,13 @@ hxx{*}:
     install.subdirs = false
 }
 
-cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_upstream"
+cxx.poptions =+ "-I$out_base/upstream" "-I$src_base/upstream"
 
+## Tests
 
-./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony}
+import test_deps = plf-rand%lib{rand}
+
+./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony} $test_deps
 exe{*}:
 {
     test = true

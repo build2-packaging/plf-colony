@@ -1,6 +1,6 @@
 : 1
 name: plf-colony
-version: 6.0.0
+version: 6.6.0
 summary: PLF Colony library: An unordered C++ data container providing fast iteration/insertion/erasure while maintaining pointer validity to non-erased elements. Provides higher-performance than std:: library containers for high-modification scenarios with unordered data.
 license: zLib
 src-url: https://github.com/mattreecebentley/plf_colony.git
@@ -11,5 +11,7 @@ build-email: mjklaim@gmail.com
 
 depends: * build2 >= 0.11.0-
 depends: * bpkg >= 0.11.0-
+
+depends: plf-rand ^1.0.0
 
 build-exclude: *-msvc_16.3-O2 ; Weird runtime crash of tests on CI but cannot reproduce and only with this version of msvc.
