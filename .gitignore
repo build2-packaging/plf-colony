@@ -1,22 +1,5 @@
 .bdep/
 
-# Compiler/linker output.
+# Local default options files.
 #
-*.d
-*.t
-*.i
-*.ii
-*.o
-*.obj
-*.so
-*.dll
-*.a
-*.lib
-*.exp
-*.pdb
-*.ilk
-*.exe
-*.exe.dlls/
-*.exe.manifest
-*.pc
-error.log
+.build2/local/

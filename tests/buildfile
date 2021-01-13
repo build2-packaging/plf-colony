@@ -1,4 +1,0 @@
-import dependencies = plf-colony%lib{colony} plf-rand%lib{rand}
-
-./ : exe{basic_integration}: cxx{*} $dependencies
-

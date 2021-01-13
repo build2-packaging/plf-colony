@@ -1,3 +1,3 @@
 [submodule "plf_colony/plf_colony"]
-	path = plf_colony/upstream
+	path = plf-colony/plf_colony/upstream
 	url = https://github.com/mattreecebentley/plf_colony.git

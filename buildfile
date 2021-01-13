@@ -1,5 +1,5 @@
-./: {*/ -build/} manifest plf_colony/upstream/doc{README.md LICENSE.md}
-
-# Don't install tests.
+# Glue buildfile that "pulls" all the packages in the project.
 #
-tests/: install = false
+import pkgs = */
+
+./: $pkgs
