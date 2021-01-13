@@ -1,4 +1,4 @@
-./: {*/ -build/} manifest plf_colony/upstream/doc{README.md LICENSE.md}
+./: {*/ -build/} manifest doc{README.md LICENSE.md}
 
 # Don't install tests.
 #

@@ -3,7 +3,7 @@ import libs += plf-colony%lib{colony} plf-rand%lib{rand}
 
 exe{*} : test = true
 
-./: exe{plf-colony-tests} doc{README.md} manifest
+./: exe{plf-colony-tests} doc{README.md LICENSE.md} manifest
 
 exe{plf-colony-tests}: {hxx ixx txx cxx}{**} $libs
 
