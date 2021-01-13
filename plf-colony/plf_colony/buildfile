@@ -1,11 +1,10 @@
 # WARNING: This build file assume that the sub-modules have been retrieved.
 
-src_upstream = $src_base/upstream
+./ : lib{colony} : hxx{**}
 
-./ : lib{colony} : $src_upstream/hxx{**}
 lib{colony} :
 {
-    cxx.export.poptions = "-I$out_base/upstream" "-I$src_base/upstream"
+    cxx.export.poptions = "-I$out_base" "-I$src_base"
 }
 
 hxx{*}:
@@ -14,26 +13,4 @@ hxx{*}:
     install.subdirs = false
 }
 
-cxx.poptions =+ "-I$out_base/upstream" "-I$src_base/upstream"
-
-## Tests
-
-import test_deps = plf-rand%lib{rand}
-
-./ : exe{test_suite} : $src_upstream/cxx{**} lib{colony} $test_deps
-exe{*}:
-{
-    test = true
-    install = false
-}
-
-# plf-colony author want to ignore these warnings
-# (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
-switch $cxx.target.class, $cxx.id
-{
-    case 'windows', 'msvc'
-        cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
-
-    case 'windows', 'clang'
-        cxx.poptions += -Wdeprecated-declarations -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
-}
+cxx.poptions =+ "-I$out_base" "-I$src_base"

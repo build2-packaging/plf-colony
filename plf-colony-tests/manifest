@@ -1,0 +1,18 @@
+: 1
+name: plf-colony-tests
+version: 6.6.0
+project: plf-colony
+summary: Tests for `plf-colony`
+license: zLib
+description-file: README.md
+src-url: https://github.com/mattreecebentley/plf_colony.git
+doc-url: https://plflib.org/colony.htm
+email: mattreecebentley@gmail.com
+package-email: mjklaim@gmail.com
+build-error-email: mjklaim@gmail.com
+
+depends: * build2 >= 0.13.0
+depends: * bpkg >= 0.13.0
+
+depends: plf-colony == $
+depends: plf-rand ^1.0.0

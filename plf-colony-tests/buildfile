@@ -1,0 +1,22 @@
+libs =
+import libs += plf-colony%lib{colony} plf-rand%lib{rand}
+
+exe{*} : test = true
+
+./: exe{plf-colony-tests} doc{README.md} manifest
+
+exe{plf-colony-tests}: {hxx ixx txx cxx}{**} $libs
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+
+# plf-colony author want to ignore these warnings
+# (source: https://github.com/mattreecebentley/plf_colony/issues/28 https://github.com/mattreecebentley/plf_colony/issues/29 )
+switch $cxx.target.class, $cxx.id
+{
+    case 'windows', 'msvc'
+        cxx.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
+
+    case 'windows', 'clang'
+        cxx.poptions += -Wdeprecated-declarations -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING
+}
