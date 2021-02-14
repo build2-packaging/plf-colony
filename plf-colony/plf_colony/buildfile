@@ -4,7 +4,7 @@
 
 lib{colony} :
 {
-    cxx.export.poptions = "-I$out_base" "-I$src_base"
+    cxx.export.poptions += "-I$out_base" "-I$src_base"
 }
 
 hxx{*}:
