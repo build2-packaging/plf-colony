@@ -1,5 +1,5 @@
 libs =
-import libs += plf-colony%lib{colony} plf-rand%lib{rand}
+import libs += plf-colony%lib{colony}
 
 exe{*} : test = true
 
