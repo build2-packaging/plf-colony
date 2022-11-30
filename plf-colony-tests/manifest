@@ -11,5 +11,9 @@ email: mattreecebentley@gmail.com
 package-email: mjklaim@gmail.com
 build-error-email: mjklaim@gmail.com
 
+requires: c++ >= 20
+
 depends: * build2 >= 0.13.0
 depends: * bpkg >= 0.13.0
+
+builds: default experimental : -wasm ; Emscripten is not supported yet
