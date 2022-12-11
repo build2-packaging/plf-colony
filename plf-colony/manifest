@@ -12,11 +12,11 @@ build-error-email: mjklaim@gmail.com
 
 tests: plf-colony-tests == $
 
+requires: c++ >= 20
+
 depends: * build2 >= 0.11.0-
 depends: * bpkg >= 0.11.0-
 
-requires: c++ >= 20
-
 builds: default experimental : -wasm ; Emscripten is not supported yet
-
-# build-exclude: *-msvc_16.3-O2 ; Weird runtime crash of tests on CI but cannot reproduce and only with this version of msvc.
+build-exclude: **clang_13**          ; Requires C++20 with ranges
+build-exclude: **clang_14.0**        ; Requires C++20 with ranges
