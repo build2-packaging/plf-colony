@@ -18,4 +18,5 @@ depends: * bpkg >= 0.13.0
 
 builds: default experimental : -wasm ; Emscripten is not supported yet
 build-exclude: **clang_13**          ; Requires C++20 with ranges
-build-exclude: **clang_14**        ; Requires C++20 with ranges
+build-exclude: **clang_14**          ; Requires C++20 with ranges
+build-exclude: **msvc_14.2**         ; Requires C++20 with ranges
