@@ -1,6 +1,6 @@
 : 1
 name: plf-colony-tests
-version: 7.3.0
+version: 7.10.0
 project: plf-colony
 summary: Tests for `plf-colony`
 license: zLib
@@ -13,8 +13,8 @@ build-error-email: mjklaim@gmail.com
 
 requires: c++ >= 20
 
-depends: * build2 >= 0.13.0
-depends: * bpkg >= 0.13.0
+depends: * build2 >= 0.15.0
+depends: * bpkg >= 0.15.0
 
 builds: default experimental : -wasm ; Emscripten is not supported yet
 build-exclude: **clang_13**          ; Requires C++20 with ranges
