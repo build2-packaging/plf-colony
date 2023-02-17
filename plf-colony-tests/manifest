@@ -16,7 +16,7 @@ requires: c++ >= 20
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
 
-builds: default experimental : -wasm ; Emscripten is not supported yet
-build-exclude: **clang_13**          ; Requires C++20 with ranges
-build-exclude: **clang_14**          ; Requires C++20 with ranges
-build-exclude: **msvc_16.11**          ; Requires C++20 with ranges
+# builds: default experimental : -wasm ; Emscripten is not supported yet
+# build-exclude: **clang_13**          ; Requires C++20 with ranges
+# build-exclude: **clang_14**          ; Requires C++20 with ranges
+# build-exclude: **msvc_16.11**          ; Requires C++20 with ranges
