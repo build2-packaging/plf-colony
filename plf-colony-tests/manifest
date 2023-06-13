@@ -1,6 +1,6 @@
 : 1
 name: plf-colony-tests
-version: 7.10.0
+version: 7.16.0
 project: plf-colony
 summary: Tests for `plf-colony`
 license: zLib
