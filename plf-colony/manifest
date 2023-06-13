@@ -20,4 +20,6 @@ depends: * bpkg >= 0.15.0
 builds: default experimental : -wasm ; Emscripten is not supported yet
 build-exclude: **clang_13**          ; Requires C++20 with ranges
 build-exclude: **clang_14**          ; Requires C++20 with ranges
-build-exclude: **msvc_16.11**          ; Requires C++20 with ranges
+build-exclude: **clang_15.*_libc++** ; Requires C++20 with ranges
+build-exclude: **clang_16.*_libc++** ; Requires `lexicographical_compare_three_way`
+build-exclude: **msvc_16.11**        ; Requires C++20 with ranges
