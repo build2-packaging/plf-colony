@@ -22,4 +22,5 @@ build-exclude: **clang_14**          ; Requires C++20 with ranges
 build-exclude: **clang_15.*_libc++** ; Requires C++20 with ranges
 build-exclude: **clang_16.*_libc++** ; Requires `lexicographical_compare_three_way`
 build-exclude: linux_debian_12-clang_16** ; clang16 doesnt compile gcc's ranges library in that config
+build-exclude: linux_debian_12-clang_15_libc++ ; `std::ranges::distance` is not implemented
 build-exclude: **msvc_16.11**        ; Requires C++20 with ranges
