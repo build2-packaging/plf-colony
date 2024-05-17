@@ -1,14 +1,14 @@
 : 1
 name: plf-colony
-version: 7.39.0
-summary: PLF Colony library: An unordered C++ data container providing fast iteration/insertion/erasure while maintaining pointer validity to non-erased elements. Provides higher-performance than std:: library containers for high-modification scenarios with unordered data.
+version: 7.43.0-a.0.z
+upstream-version: 7.4.3
+summary: PLF Colony library: An unordered C++ data container providing fast iteration/insertion/erasure while maintaining pointer validity to non-erased elements.
 license: zLib
 src-url: https://github.com/mattreecebentley/plf_colony.git
 doc-url: https://plflib.org/colony.htm
 description-file: README.md
 email: mattreecebentley@gmail.com
 package-email: mjklaim@gmail.com
-build-error-email: mjklaim@gmail.com
 
 tests: plf-colony-tests == $
 
