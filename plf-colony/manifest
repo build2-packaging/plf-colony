@@ -17,7 +17,7 @@ requires: c++ >= 20
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
 
-builds: latest experimental wasm
+builds: latest experimental
 build-exclude: **clang_13**          ; Requires C++20 with ranges
 build-exclude: **clang_14**          ; Requires C++20 with ranges
 build-exclude: **clang_15.*_libc++** ; Requires C++20 with ranges
