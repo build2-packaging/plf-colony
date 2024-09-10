@@ -1,7 +1,7 @@
 : 1
 name: plf-colony-tests
-version: 7.44.0
-upstream-version: 7.4.4
+version: 7.47.0
+upstream-version: 7.4.7
 project: plf-colony
 summary: Tests for `plf-colony`
 license: zLib
