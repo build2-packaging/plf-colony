@@ -1,0 +1,8 @@
+: 1
+name: plf-colony
+version: 7.55.0
+upstream-version: 7.5.5
+summary: PLF Colony library: An unordered C++ data container providing fast\
+ iteration/insertion/erasure while maintaining pointer validity to non-erased\
+ elements.
+license: zLib
