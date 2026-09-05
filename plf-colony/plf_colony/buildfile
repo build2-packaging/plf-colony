@@ -1,6 +1,6 @@
 # WARNING: This build file assume that the sub-modules have been retrieved.
 
-./ : lib{colony} : hxx{**}
+./ : lib{colony} : hxx{**} file{*.natvis}
 
 lib{colony} :
 {
